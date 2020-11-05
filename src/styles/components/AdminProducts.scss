@@ -1,0 +1,38 @@
+.product{
+    &__img {
+        width: 120px;
+        height: 80px;
+        object-fit: cover;
+    }
+    .MuiInputBase-root.MuiInput-root.MuiInput-underline, .MuiFormControl-root{
+        width: 100%;
+    }
+    &__img-upload {
+        margin-top: 10px;
+        width:80%;
+        height: 250px;
+        object-fit: cover;
+    }
+    & thead tr th:nth-child(3) {
+        width: 10%;
+    }
+    td.MuiTableCell-alignLeft {
+        text-align: center;
+    }
+    & thead th {
+        color: white;
+        text-align: center;
+    }
+}
+#upImg{
+    display: none;
+}
+.custom-button-upload-img{
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    i{
+        margin-right: 10px;
+    }
+}
