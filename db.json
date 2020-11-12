@@ -1,14 +1,244 @@
 {
   "products": [
     {
-      "name": "Lementum Disus An Cras Damos Dincidunts",
+      "name": "asdfgentum Disus An Cssssssssss",
       "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
       "price": 39.99,
       "statusId": 1,
       "typeId": 1,
-      "categorieId": 1,
-      "brandId": 1,
+      "categorieId": 2,
+      "brandId": 2,
       "id": 1
+    },
+    {
+      "name": "g2s Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 239.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 198
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 439.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 104
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 639.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 106
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 339.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 1,
+      "brandId": 2,
+      "id": 107
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 139.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 1,
+      "brandId": 3,
+      "id": 109
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 739.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 130
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 118
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 122
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 133
+    },
+    {
+      "name": "mem Disus An ",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 1444
+    },
+    {
+      "name": "emAn Css",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 1437
+    },
+    {
+      "name": "entum sss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 1463
+    },
+    {
+      "name": "n Csssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 174
+    },
+    {
+      "name": "tum Disus An ",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 1634
+    },
+    {
+      "name": "um Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 163
+    },
+    {
+      "name": " An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 144
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 146
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 173
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 156
+    },
+    {
+      "name": "Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 1432
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 14334
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 143
+    },
+    {
+      "name": "Lementum Disus An Cssssssssss",
+      "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
+      "price": 39.99,
+      "statusId": 1,
+      "typeId": 1,
+      "categorieId": 2,
+      "brandId": 2,
+      "id": 123
     },
     {
       "id": 541,
@@ -17,8 +247,8 @@
       "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
       "statusId": 1,
       "typeId": 1,
-      "categorieId": 1,
-      "brandId": 1
+      "categorieId": 66,
+      "brandId": 2
     },
     {
       "name": "trung",
@@ -35,9 +265,9 @@
       "img": "//cdn.shopify.com/s/files/1/0270/5873/3109/products/9-compressor_6611f1ea-e86e-4a49-9c11-b8f048603f0f_300x.png?v=1602843359",
       "price": 65.24,
       "statusId": 1,
-      "typeId": 1,
+      "typeId": 2,
       "categorieId": 1,
-      "brandId": 1,
+      "brandId": 2,
       "id": 177
     }
   ],
@@ -156,6 +386,14 @@
     {
       "id": 1,
       "name": "Anna"
+    },
+    {
+      "id": 2,
+      "name": "Anna2"
+    },
+    {
+      "id": 3,
+      "name": "Anna3"
     }
   ],
   "categories": [
@@ -200,12 +438,26 @@
       "parent_id": 66,
       "root": 1,
       "id": 67
+    },
+    {
+      "name": "trung 19",
+      "parent_id": 2,
+      "root": 1,
+      "id": 68
     }
   ],
   "types": [
     {
       "id": 1,
       "name": "Comodous"
+    },
+    {
+      "id": 2,
+      "name": "Comodous 2"
+    },
+    {
+      "id": 3,
+      "name": "Comodous 3"
     }
   ]
 }

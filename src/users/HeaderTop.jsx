@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import Login from "../common/Login";
-import i18next from "i18next";
 import "../translations/i18n";
-import { useTranslation } from 'react-i18next';
+import {FetchProductSearch, UpdateUrl} from "../actions/UsersAction";
+import _, {debounce} from 'lodash';
+import CartHover from './CartHover';
+import i18next from "i18next";
+import {useTranslation} from "react-i18next";
+import "../translations/i18n";
+
 export default function HeaderTop() {
+    const [search, setSearch] = useState('');
+    const dispatch = useDispatch();
     let lng = localStorage.getItem("lng");
-    let {t} = useTranslation();
+    const {t} = useTranslation(['users']);
+    const numCarts = useSelector(state => state.users.numberOfCart);
+    const getUrl = useSelector(state => state.users.url);
+
 
     const handleShowFormLogin = (event) => {
         event.preventDefault();
@@ -18,7 +29,28 @@ export default function HeaderTop() {
         localStorage.setItem('lng', data);
         i18next.changeLanguage(data);
     }
-    
+
+    const handleSearch =(event) => {
+        event.preventDefault();
+        let { value } = event.target;
+        setSearch(value);
+        let url = getUrl;
+        let urlFormat;
+        let index = url.indexOf("&name_like=");
+        if(value){
+            let valSearch = `&name_like=${value}`;
+            urlFormat =(index != -1) ? url.substring(0,index) + valSearch : url + valSearch;
+        } else {
+            let index = url.indexOf("&name_like=");
+            urlFormat = (index != -1) ? url.substring(0,index) : url;
+        }
+      
+        (_.debounce(() => { 
+            dispatch(FetchProductSearch(urlFormat))
+            dispatch(UpdateUrl(urlFormat))
+        }, 1000))();
+    }
+
     return (
         <div className="header-top container-format row align-items-center">
             <div className="col-4 d-flex">
@@ -83,7 +115,7 @@ export default function HeaderTop() {
                         <i className="fas fa-map-marker-alt"></i>
                     </a>
                     <span className="find-location header__text">
-                        FIND A STORE
+                        {t('users:headers.findAStore')}
                     </span>
                 </div>
             </div>
@@ -94,7 +126,7 @@ export default function HeaderTop() {
                 <div className="signin px-3 border-right">
                     <a href="" onClick={handleShowFormLogin}>
                         <span className="signin header__text">
-                            SIGN
+                            {t('users:headers.sign')}
                         </span>
                         <i className="fas fa-angle-down"></i>
                     </a>
@@ -107,12 +139,15 @@ export default function HeaderTop() {
                 </div>
                 <div className="cart px-3 position-relative">
                     <i className="fas fa-cart-plus"></i>
-                    <span className="total-cart">10</span>
+                    <span className="total-cart">{ numCarts }</span>
+
+                    <CartHover />
+                    
                 </div>
                 <div className="header-top__search">
                     <form action="" className="form-search">
-                        <input type="text" name="search" defaultValue="trung" placeholder="SEARCH" />
-                        <button type="submit">
+                        <input type="text" name="search" onChange={ handleSearch } value={search} placeholder={t('users:headers.search')} />
+                        <button type="submit"> 
                             <i className="fas fa-search"></i>
                         </button>
                     </form>

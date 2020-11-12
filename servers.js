@@ -58,6 +58,26 @@ server.get("/products-orders/:id/:from/:to" , (req, res) => {
     res.json(data);
 });
 
+server.get("/brands-product/:id", async (req, res) => {
+    let id = req.params.id;
+    let set = new Set()
+    await userdb.products.forEach(item => item.categorieId == id && set.add(item.brandId) );
+
+    let brands = userdb.brands.filter(item => set.has(item.id) && item )
+    
+    res.json(brands)
+});
+server.get("/types-product/:id", async (req, res) => {
+    let id = req.params.id;
+    let set = new Set()
+    await userdb.products.forEach(item => item.categorieId == id && set.add(item.typeId) );
+
+    let type = userdb.types.filter(item => set.has(item.id) && item )
+    
+    res.json(type)
+});
+
+
 server.post('/login', (req, res) => {
     const {email, password} = req.body;
     if (isAuthenticated({email, password}) === false) {

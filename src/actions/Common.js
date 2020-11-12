@@ -7,10 +7,10 @@ import * as types from "../common/constants/ActionsTypes";
 export const FetchUrl = (url, reqType) => {
     return (dispatch) => {
         try {
-            FetchData(url)().then(res => {
+            FetchData(url)().then(responses => {
                 dispatch({
                     type : reqType,
-                    payload : res.data
+                    payload : responses.data
                 });
             })
         } catch (error) {
@@ -37,10 +37,10 @@ export const UpdateStateExc = (value) => {
 export const FetchBrands = () => {
     return (dispatch) => {
         try {
-            FetchData("brands")().then( res => 
+            FetchData("brands")().then( responses => 
                 dispatch({
                     type : types.GET_LIST_BRANDS,
-                    payload : res.data
+                    payload : responses.data
                 })
             )
         } catch (error) {
@@ -52,10 +52,10 @@ export const FetchBrands = () => {
 export const FetchStatusProducts = () => {
     return (dispatch) => {
         try {
-            FetchData("statuses")().then( res => 
+            FetchData("statuses")().then( responses => 
                 dispatch({
                     type : types.GET_LIST_STATUS,
-                    payload : res.data
+                    payload : responses.data
                 })
             )
         } catch (error) {
@@ -67,10 +67,10 @@ export const FetchStatusProducts = () => {
 export const FetchTypes = () => {
     return (dispatch) => {
         try {
-            FetchData("types")().then( res => 
+            FetchData("types")().then( responses => 
                 dispatch({
                     type : types.GET_LIST_TYPES,
-                    payload : res.data
+                    payload : responses.data
                 })
             )
         } catch (error) {
@@ -82,7 +82,7 @@ export const FetchTypes = () => {
 export const RemoveItem = (url) => {
     return (dispatch) => {
         try {
-            FetchData(url)("DELETE").then( res => {
+            FetchData(url)("DELETE").then( responses => {
                 Alert('success');
             });
         } catch (error) {

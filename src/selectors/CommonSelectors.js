@@ -17,3 +17,9 @@ export const getProductById = state =>state.admin.list_products.values;
 
 // USER
 export const GetCate =  state => state.users.allCate;
+export const GetListProductsCateId = state => state.users.productsCateId;
+export const GetTotalProduct = state => state.users.listProducts.total;
+export const GetListProducts = state => state.users.listProducts.products;
+export const GetListCates = state => state.users.listCates;
+
+export const GetHotProducts = state => [...state.users.recentlyPros];

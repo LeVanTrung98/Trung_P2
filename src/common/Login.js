@@ -11,9 +11,9 @@ export default function Login(props) {
         },
         onSubmit : (values) => {
             let prePath = props.location?.state?.path;
-            FetchData("login")("post", values).then(res => {
-                if(res.status >= 200 && res.status < 300){
-                    localStorage.setItem("token", res.data.access_token)
+            FetchData("login")("post", values).then(responses => {
+                if(responses.status >= 200 && responses.status < 300){
+                    localStorage.setItem("token", responses.data.access_token)
                     prePath && his.push(prePath.slice(1));
                 }
             }); 
