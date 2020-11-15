@@ -2,7 +2,7 @@
     &__img {
         width: 120px;
         height: 80px;
-        object-fit: cover;
+        object-fit: contain;
     }
     .MuiInputBase-root.MuiInput-root.MuiInput-underline, .MuiFormControl-root{
         width: 100%;
@@ -11,7 +11,7 @@
         margin-top: 10px;
         width:80%;
         height: 250px;
-        object-fit: cover;
+        object-fit: contain;
     }
     & thead tr th:nth-child(3) {
         width: 10%;

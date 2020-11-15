@@ -42,6 +42,14 @@ export const TRANSLATIONS_ADMIN_EN = {
         "cate" : "Category",
         "rootCate" : "Root Category",
         "act" : "Actions"
+    },
+    "orders" :{
+        "lbOrder" : "Order",
+        "lbStartDate" : "Date",
+        "lbStatus" : "Status",
+        "lbUser" : "Customer",
+        "lbPhone" : "Phone",
+        "lbQuantity" : "Quantity"
     }
     
 }

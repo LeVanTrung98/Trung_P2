@@ -16,3 +16,30 @@
 .pagination .MuiPaginationItem-root {
     outline: none;
 }
+
+.payment {
+    .MuiTextField-root{
+        width: 100%;
+    }
+}
+.sugguest .MuiFormControl-root{
+    width: 100%;
+}
+
+.orders{
+    .makeStyles-root-4 {
+        max-height: 400px;
+        overflow-y: scroll;
+    }
+    .MuiTableContainer-root {
+        overflow-x: none;
+    }
+    .MuiTableRow-root td:nth-child(2){
+        width: 20%;
+    }
+}
+.product{
+    .MuiTableRow-root td:nth-child(1){
+        width: 25%;
+    }
+}

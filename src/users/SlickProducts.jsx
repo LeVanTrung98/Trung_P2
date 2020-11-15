@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {useDispatch} from "react-redux";
 import {  AddToCart, CalcNumberCart } from "../common/logics/UsersLogic";
 import {UpdateDataWithType} from "../actions/Common";
-import {useLocation, Link} from "react-router-dom";
+import {useLocation,useRouteMatch, useParams, Link} from "react-router-dom";
 
 SlickProducts.propTypes = {
     title : PropTypes.string.isRequired,
@@ -12,7 +12,8 @@ SlickProducts.propTypes = {
 
 export default function SlickProducts(props) {
     let location = useLocation();
-    let url = location?.pathname;
+    let loca = location?.pathname;
+    let url = props.url ? props.url : (loca.indexOf("/product/") !== -1 ) ? loca.substring(0, loca.lastIndexOf("/")) : loca + '/product';
     const dispatch = useDispatch();
     const [currentClick, setCurrentClick] = useState(0);
     const [values, setValues] = useState([]);
@@ -61,12 +62,12 @@ export default function SlickProducts(props) {
                         values.map((item, index) => (
                             <div className="block" key={index}> 
                                 <div className="product text-center">
-                                    <a href="">
+                                    <Link to={ url +'/' + item.id }>
                                         <img src={item.img}alt="" className="product__img" />
-                                    </a>
-                                    <p className="product__cate">{item.name}</p>
+                                    </Link>
+                                    <p className="product__cate"></p>
                                     <h2 className="product__heading">
-                                        <a href="" className="product__name">Dinterdum Pretium De Milancelos Dincidunts Comodou</a>
+                                        <Link to={ url +'/' + item.id } className="product__name">{item.name}</Link>
                                     </h2>
                                     <div className="product__rate">
                                         <i className="fas fa-star"></i>
@@ -79,7 +80,7 @@ export default function SlickProducts(props) {
                                         <span className="format-price">$99.00</span>
                                         <span className="product__price-current">$49.00</span>
                                     </div>
-                                    <Link to={ url + "/product/" + item.id }>
+                                    <Link to={ url +'/' + item.id }>
                                         <button type="button" className="btn-add-cart">
                                             View Products
                                         </button>

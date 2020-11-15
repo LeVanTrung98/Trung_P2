@@ -115,14 +115,14 @@ export default function ManageCategories() {
     }, [])
 
     return (
-        <div className="category">
+        <div className="category pb-5">
             <div className="row mt-5">
-                <div className="col-4">
+                <div className="col-4 ml-auto">
                     <span className="category__title">
                         { t('trans:categories.listCate')}
                    </span>
                 </div>
-                <div className="col-2 text-right">
+                <div className="col-2 text-right mr-auto">
                     <button type="button" id="category" onClick={handleClick}  className="category__icon--format" data-toggle="modal" data-target="#exampleModal">
                         <i className="fas fa-plus"></i>
                         { t('trans:categories.btnCrCate')}
@@ -130,11 +130,9 @@ export default function ManageCategories() {
                 </div>
             </div>
             <div className="row mt-3">
-                <div className="col-6 ">
+                <div className="col-6 m-auto">
                     <TableCategory title={dataTitle} allCate={ allCate } data={ categories.length > 0 ? categories :[] } />
                     <Modal data={ allCate.length > 0 && allCate } />
-                </div>
-                <div className="col-6">
                 </div>
             </div>
         </div>

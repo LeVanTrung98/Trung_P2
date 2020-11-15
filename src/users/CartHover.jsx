@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react'
 import {useSelector} from "react-redux";
-import { RemoveProInCart , CalcNumberCart} from "../common/logics/UsersLogic";
+import { RemoveProInCart , CalcNumberCart, CalcTotalMoneyCart} from "../common/logics/UsersLogic";
 import { useDispatch } from "react-redux";
-import { FetchUrl, UpdateDataWithType } from "../actions/Common";
-import i18next from "i18next";
+import { UpdateDataWithType } from "../actions/Common";
+import { GetValCartHover } from "../actions/UsersAction";
 import {useTranslation} from "react-i18next";
 import "../translations/i18n";
+import { Link } from '@material-ui/core';
 
 export default function CartHover() {
     let {t} = useTranslation(['users']);
@@ -16,11 +17,7 @@ export default function CartHover() {
 
     useEffect(() => {
         if( (valueCart.length > 0) && cart ){
-            let result = valueCart.reduce((sum, item) => {
-                let valCart = cart.filter(cart => cart.id == item.id);
-                sum += parseInt(valCart[0]?.quantity) * item.price;
-                return sum;
-            }, 0);
+            let result = CalcTotalMoneyCart(valueCart, cart);
             setToTal(result.toFixed(2));
         }
     }, [cart, valueCart]);
@@ -29,7 +26,7 @@ export default function CartHover() {
         let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : null;
         if(cart) {
             let search = cart.reduce((result, item) =>  result += `&id=${item.id}`, "");
-            search ? dispatch(FetchUrl( 'products?_expand=categorie' + search, "FETCH_PRODUCT_HOVER_CART")) 
+            search ? dispatch(GetValCartHover( 'products?_expand=categorie' + search, cart)) 
                     : dispatch(UpdateDataWithType([], 'FETCH_PRODUCT_HOVER_CART'));
         }
     }
@@ -43,26 +40,22 @@ export default function CartHover() {
         dispatch(UpdateDataWithType(numberOfCart,'GET_NUMBER_OF_CART'));
     }
 
-    // useEffect(() => {
-    //     CartHover();
-    // },[])
-
     return (
         <div className="sub-cart position-absolute">
             <div className="wapper">
                 {
                     valueCart && valueCart.map(item => (
-                        <div className="row sub-cart__block flex-nowrap" key={item.id}>
-                            <img src={item.img} alt={item.name} className="sub-cart__img" />
+                        <div className="row sub-cart__block flex-nowrap" key={item.item.id}>
+                            <img src={item.item.img} alt={item.item.name} className="sub-cart__img" />
                             <div className="sub-cart__info mx-2">
-                                <p className="sub-cart__name">{item.name}</p>
-                                <div className="sub-cart__cate my-1">{item.categorie?.name}</div>
+                                <p className="sub-cart__name">{item.item.name}</p>
+                                <div className="sub-cart__cate my-1">{item.item.categorie?.name}</div>
                                 <div>
-                                    <span className="sub-cart__quantity mr-1">  {cart && cart.map(cart => cart.id == item.id && cart.quantity)}</span> x
-                                                <span className="sub-cart__price ml-1">${item.price}</span>
+                                    <span className="sub-cart__quantity mr-1">  {item.quantity}</span> x
+                                    <span className="sub-cart__price ml-1">${item.item.price}</span>
                                 </div>
                             </div>
-                            <a href="" onClick={handleRemoveProInCart} data-id={item.id} className="btn btn-close">
+                            <a href="" onClick={handleRemoveProInCart} data-id={item.item.id} className="btn btn-close">
                                 <i className="fa fa-times"></i>
                             </a>
                         </div>
@@ -79,9 +72,10 @@ export default function CartHover() {
                     <p className="text-center">{t('users:headers.cartEmpty')}</p>
                 )
             }
-            <button type="button" className="btn-add-cart btn-add-to-cart">
-               {valueCart.length > 0 ? t('users:headers.viewCart') : t('users:headers.CountShopp')}
-            </button>
+                <button type="button"  className="btn-add-cart btn-add-to-cart mt-4">
+                    
+                    {valueCart.length > 0 ? t('users:headers.viewCart') : t('users:headers.CountShopp')}
+                </button>
         </div>
     )
 }

@@ -20,6 +20,14 @@ export const getChildCateClick = (data, nodes) => {
     return getChildId;
 }
 
+export const CalcTotalMoneyCart = (valueCart, cart) => {
+    let result = valueCart.reduce((sum, item) => {
+        let valCart = cart.filter(cart => cart.id == item.item.id);
+        sum += parseInt(valCart[0]?.quantity) * item.item.price;
+        return sum;
+    }, 0);
+    return result;
+}
 
 export const GetStatusSortProducts = (value) => {
     let url;
@@ -137,6 +145,30 @@ export const AddToCart = (id, quantity) => {
 
     localStorage.setItem('cart', JSON.stringify(convertArr));
 } 
+export const UpdateToCart = (id, quantity) => {
+    let value = { id, quantity };
+    let valCarts = localStorage.getItem("cart");
+    let convertArr=[];
+
+    if(valCarts){
+        convertArr = JSON.parse(valCarts);
+        let temps = convertArr.find(item => item.id == id);
+    
+        if (temps) {
+            convertArr.map(item => {
+                if (item.id == id) {
+                    return item.quantity = quantity;
+                }
+            });
+        } else {
+            convertArr.push(value);
+        }
+    } else {
+        convertArr.push(value)
+    }
+
+    localStorage.setItem('cart', JSON.stringify(convertArr));
+} 
 
 export const CalcNumberCart = () => {
     let values = localStorage.getItem("cart") ? JSON.parse(localStorage.getItem('cart')) : [];
@@ -149,4 +181,78 @@ export const RemoveProInCart = (id) => {
     let find = values.findIndex(item => item.id == id);
     find !== -1 && values.splice(find, 1); 
     localStorage.setItem("cart", JSON.stringify(values));
+}
+
+export function RateReviews(value){
+    let rate;
+    switch(true){
+        case (value >= 4 && value < 5) : 
+        {
+            rate = <>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="far fa-star"></i>
+                </>
+                break
+        }
+        case 5 : {
+                rate =  <>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                </>
+                break;
+        }
+        case (value < 4 && value >= 3) :
+        {
+            rate = <>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                </>
+            break;
+             
+        }
+        case (value >= 2  && value < 3): 
+        {
+            rate =  <>
+                    <i className="fas fa-star"></i>
+                    <i className="fas fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                </>
+            break;
+             
+        }
+        case (value >= 1 && value < 2) : 
+        {
+            rate =  <>
+                    <i className="fas fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                </>
+            break;
+             
+        }
+        default : {
+            rate = <>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                    <i className="far fa-star"></i>
+                </>
+            break;
+        }
+    }
+    return rate;
 }

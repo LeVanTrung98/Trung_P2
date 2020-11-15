@@ -59,6 +59,33 @@
     .signin{
         position: relative;
         white-space: nowrap;
+        &:hover .sub-sign{
+            visibility: visible;
+            transition: visibility .4s;
+        }
+    }
+    
+    .sub-sign{
+       
+        visibility: hidden;
+        position: absolute;
+        z-index: 11;
+        top: 100%;
+        background: white;
+        width: 150px;
+        text-align: center;
+        left: -25%;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 12px -5px rgba(0,0,0,.5);
+
+        &__item{
+            color: #333;
+            margin-bottom: 5px;
+            &:hover{
+                font-weight: 500;
+            }
+        }
     }
     .form-login{
         position: absolute;
@@ -67,11 +94,13 @@
         margin-top:15px;
         border-radius: 5px;
         opacity: 0;
-        transition: opacity .4s;
+        transition: all .4s;
+        visibility: hidden;
     }
     .form-login--active{
         opacity: 1;
-        transition: opacity 1s;
+        transition: all 1s;
+        visibility: initial;
     }
 
     a > i{
@@ -121,10 +150,11 @@ header > .top {
 
     .list-cate{
         &__link{
-            font-weight: 700;
+            font-weight: 600;
             color: #000;
             text-transform: uppercase;
-            
+            letter-spacing: .05em;
+            font-family: 'Os';
         }
         &__item{
             padding: 17px 12px;

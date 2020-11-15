@@ -10,6 +10,7 @@ import {FetchStatusProducts, FetchTypes, FetchBrands} from "../actions/Common";
 import { useTranslation } from 'react-i18next';
 import "../translations/i18n";
 import i18next from "i18next";
+import ManageOrders from './ManageOrders';
 
 export default function Dashboard() {
     let lng = localStorage.getItem("lng");
@@ -58,24 +59,24 @@ export default function Dashboard() {
                             </a>
                         </div>
                         <ul className="menu">
-                            <li className="menu__item">
-                                <a href="" className="menu__link">
+                            <Link to="/dashboard" className="menu__item">
+                                <span className="menu__link">
                                     { t('trans:dashboard.cateHome') }
                                     <i className="fas fa-home"></i>
-                                </a>
-                            </li>
+                                </span>
+                            </Link>
                             <Link to="/dashboard/users" className="menu__item">
                                 <span className="menu__link">
                                     { t('trans:dashboard.cateUsers') }
                                     <i className="fas fa-users"></i>
                                 </span>
                             </Link>
-                            <li className="menu__item">
-                                <a href="" className="menu__link">
+                            <Link to="/dashboard/orders" className="menu__item">
+                                <span className="menu__link">
                                     { t('trans:dashboard.cateOrders') }
                                     <i className="fas fa-indent"></i>
-                                </a>
-                            </li>
+                                </span>
+                            </Link>
                             <Link to="/dashboard/categories" className="menu__item">
                                 <span className="menu__link">
                                     { t('trans:dashboard.cateCategory') }
@@ -150,6 +151,7 @@ export default function Dashboard() {
                     <Route path="/dashboard/users" component={ ManageUsers } />
                     <Route path="/dashboard/categories" component={ ManageCategories } />
                     <Route path="/dashboard/products" component={ ManageProducts } />
+                    <Route path="/dashboard/orders" component={ ManageOrders } />
                 </Switch>
             </main>
         </div>

@@ -13,6 +13,9 @@ body{
     overflow-x: hidden;
     width: 100vw;
 }
+img{
+    object-fit: contain;
+}
 $bg-dashboard : #f9fbff;
 $col-text : #333;
 $col-text1 : #071c35;

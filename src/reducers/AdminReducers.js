@@ -19,10 +19,22 @@ const initial = {
         avg_rate_product : 0,
         data_chart : []
     }
-,   
+,  orders : {
+    lists : [],
+    total : 0
+}
 };
 export const admin = (state = initial, actions) => {
     switch(actions.type) {
+        case types.FETCH_ORDERS_PAGE_ADMIN : {
+            return {
+                ...state,
+                orders : {
+                    lists : actions.payload,
+                    total : actions.total
+                }
+            }
+        }
         case types.COUNT_ORDER_PRODUCT_ID : {
             return {
                 ...state,

@@ -77,45 +77,63 @@ server.get("/types-product/:id", async (req, res) => {
     res.json(type)
 });
 
+// server.post("/users/register", (req, res) =>{
+//     let {first_name, last_name, email, password, phone, roleId} = req.body;
+//     let values = {first_name, last_name, email, password, phone, roleId};
+//     userdb.users.push(values);
+
+//     res.json({status : 200});
+// });
 
 server.post('/login', (req, res) => {
     const {email, password} = req.body;
     if (isAuthenticated({email, password}) === false) {
       const status = 401
       const message = 'Incorrect email or password'
-      res.status(status).json({status, message})
+      res.json({status, message})
       return
     }
-    const access_token = createToken({email, password})
-    console.log("Access Token:" + access_token);
-    res.status(200).json({access_token})
+    const access_token = createToken({email, password});
+
+    let info = userdb.users.reduce((result,item) => {
+        if(item.email === email && item.password === password){
+            let {first_name} = item;
+            let role = userdb.roles.find(role => role.id == item.roleId);
+            let roleId = role ? role.status : 2;
+            let userId = item.id
+            result = {roleId, first_name, userId };
+        }
+        return result;
+    }, {});
+    res.status(200).json({info , access_token})
 })
 
-// server.use("*", (req, res, next) => {
-// 	if (req.headers.authorization === undefined) {
-// 		const status = 401
-// 		const message = 'Error in authorization format'
-// 		res.status(status).json({status, message})
-// 		return
-// 	} 
-// 	try {
-// 		let verifyTokenReq;
-// 		verifyTokenReq = verifyToken(req.headers.authorization);
-// 		console.log(verifyTokenReq);
-// 		if(verifyTokenReq  instanceof Error){
-// 			const status = 401
-// 			const message = 'Access token not provided'
-// 			res.status(status).json({status, message})
-// 			return
-// 		}
-// 		next();
-// 	} catch (error) {
-// 		const status = 401
-// 		const message = 'Error access_token is revoked'
-// 		res.status(status).json({status, message})
-// 		return
-// 	}
-// })
+
+server.post(/^[(?!\/users)|(?!\/sugguest)].$/, (req, res, next) => {
+	if (req.headers.authorization === undefined) {
+		const status = 401
+		const message = 'Error in authorization format'
+		res.status(status).json({status, message})
+		return
+	} 
+	try {
+		let verifyTokenReq;
+		verifyTokenReq = verifyToken(req.headers.authorization);
+		console.log(verifyTokenReq);
+		if(verifyTokenReq  instanceof Error){
+			const status = 401
+			const message = 'Access token not provided'
+			res.status(status).json({status, message})
+			return
+		}
+		next();
+	} catch (error) {
+		const status = 401
+		const message = 'Error access_token is revoked'
+		res.status(status).json({status, message})
+		return
+	}
+})
 
    
 server.use(router)

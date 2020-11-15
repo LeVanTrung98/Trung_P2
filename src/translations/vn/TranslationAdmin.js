@@ -50,5 +50,13 @@ export const TRANSLATIONS_ADMIN_VN = {
         "cate" : "Loại SP",
         "rootCate" : "Loại SP cha",
         "act" : "Chức năng"
+    },
+    "orders" :{
+        "lbOrder" : "Mã Đơn",
+        "lbStartDate" : "Ngày Đặt",
+        "lbStatus" : "Trạng Thái",
+        "lbUser" : "Khách hàng",
+        "lbPhone" : "Số ĐT",
+        "lbQuantity" : "Số lượng"
     }
 }

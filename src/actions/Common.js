@@ -20,6 +20,22 @@ export const FetchUrl = (url, reqType) => {
     }
 }
 
+export const GetCountUrl = (url, reqType) => {
+    return (dispatch) => {
+        try {
+            FetchData(url)().then(responses => {
+                dispatch({
+                    type : reqType,
+                    payload : responses?.headers['x-total-count']
+                });
+            })
+        } catch (error) {
+            console.log(error);
+            Alert('error');   
+        }
+    }
+}
+
 export const UpdateDataWithType = (value, reqType) => {
     return {
         type : reqType,

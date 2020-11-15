@@ -3,7 +3,8 @@ import {useSelector} from "react-redux";
 import {GetCateParent, GetCateByIdParent} from "../selectors/UserSelectors";
 import {Link} from "react-router-dom";
 import  CartHover from "./CartHover";
-import _,{debounce} from 'lodash';
+
+
 export default function HeaderBottom() {
     const [idHover, setIdHover] = useState();
     const [cateId, setCateId] = useState();
@@ -20,28 +21,6 @@ export default function HeaderBottom() {
         let id = event.currentTarget.getAttribute("data-id");
         setIdHover(id);
     }
-
-    useEffect(() => {
-        
-        function toggleBgkMenu(){
-            let heigth = window.pageYOffset;
-            if(heigth < 90){
-                document.getElementById("logo").classList.add("d-none")
-                document.getElementById("cart").classList.add("d-none")
-            }else{
-                document.getElementById("logo").classList.remove("d-none")
-                document.getElementById("cart").classList.remove("d-none")
-            }
-            console.log(heigth);
-        }
-        
-        window.addEventListener('scroll', _.debounce(toggleBgkMenu, 300));
-        document.getElementById("logo").classList.add("d-none");
-        document.getElementById("cart").classList.add("d-none");
-        // return () => {
-        //     window.addEventListener('scroll', toggleBgkMenu);
-        // }
-    }, []);
     
     return (
         <div className="row header-bottom align-items-center">
@@ -52,41 +31,6 @@ export default function HeaderBottom() {
             </div>
             <div className="col-8 h-100 m-auto">
                 <ul className="header-bottom__list-cate list-cate text-center">
-                    <li className="list-cate__item d-inline-block">
-                        <a href="" className="list-cate__link">
-                            NEW IN
-                        </a>
-                        <ul className="sub-menu">
-                            <li className="list-cate__item ">
-                                <a href="" className="list-cate__link-sub-menu">
-                                    NEW IN
-                                </a>
-                            </li>
-                            <li className="list-cate__item ">
-                                <a href="" className="list-cate__link-sub-menu">
-                                    NEW IN
-                                </a>
-                                    <ul className="sub-menu sub-menu-child">
-                                        <li className="list-cate__item ">
-                                            <a href="" className="list-cate__link-sub-menu">
-                                                NEW IN
-                                            </a>
-                                        </li>
-                                        <li className="list-cate__item ">
-                                            <a href="" className="list-cate__link-sub-menu">
-                                                NEW IN
-                                            </a>
-                                        </li>
-                                        <li className="list-cate__item ">
-                                            <a href="" className="list-cate__link-sub-menu">
-                                                NEW IN
-                                            </a>
-                                        </li>
-                                    </ul>
-                            </li>
-                        </ul>
-                    </li>
-                   
                     {
                         rootCate && rootCate.map(item => (
                             <li className="list-cate__item d-inline-block" onMouseEnter={handleMouseOver} key={item.id} data-id={item.id}>
@@ -112,19 +56,19 @@ export default function HeaderBottom() {
                         <a href="" className="list-cate__link">
                             NEW IN
                         </a>
-                        <span className="icon-lable icon-hot">Hot</span>
+                        <span className="icon-lable icon-hot">Sale</span>
                     </li>
                     <li className="list-cate__item d-inline-block">
                         <a href="" className="list-cate__link">
-                            NEW IN
+                            About Me
                         </a>
-                        <span className="icon-lable icon-new">New</span>
+                        <span className="icon-lable icon-new">Hot</span>
                     </li>
                     <li className="list-cate__item d-inline-block">
-                        <a href="" className="list-cate__link">
-                            NEW IN
-                        </a>
-                        <span className="icon-lable icon-sale">Sale</span>
+                        <Link to="/sugguest-product" className="list-cate__link">
+                            sugguest
+                        </Link>
+                        <span className="icon-lable icon-sale">New</span>
                     </li>
                 </ul>
             </div>
@@ -136,10 +80,10 @@ export default function HeaderBottom() {
                         </a>
                     </li>
                     <li className="list-icon__item  list-icon__cart d-inline-block px-3">
-                        <a href="">
+                        <Link to="/colections/cart">
                             <i className="fas fa-cart-plus"></i>
                             <span className="total-cart">{ numCarts }</span>
-                        </a>
+                        </Link>
                         <CartHover />
                     </li>
                 </ul>

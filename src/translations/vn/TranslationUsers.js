@@ -22,7 +22,7 @@ export const TRANSLATION_USERS_VN = {
         'viewPro' : "Chi Tiết Sản Phẩm",
         'addCart' : "Thêm Vào Giỏ",
         'feature' : "Đặc Trưng",
-        'recentlyPro' : "Sản Phẩm Xem Gần Đây",
+        'recentlyPro' : "Sản Phẩm Bạn Đã Xem",
         "hotPro" : "Sản Phẩm Hot"
     }
 }

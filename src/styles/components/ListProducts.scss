@@ -11,7 +11,6 @@
         font-size: 13px;
     }
 
-
     &__filters{
         padding: 15px 20px;
         background-color: #f7f7f7;
@@ -34,8 +33,8 @@
         }
     }
 
-
 }
+
 .contents__products, .content-slick{
     .wrapper__products{
         display: flex;
@@ -89,6 +88,7 @@
         }
         &__cate{
             margin: 0;
+            margin-top: 10px;
             font-weight: 600;
             font-family: sans-serif;
         }
@@ -147,13 +147,14 @@
 }
 
 // slick
-.recently, .hot-products{
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+.recently, .hot-products, .new-pros{
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
     padding-top: 40px;
-    &-view-products{
+    &-view-products, .new-pros__slick{
         .title_slick{
             @extend .contents__title;
             font-family: sans-serif;
+            
         }
         .content-slick{
             white-space: nowrap;

@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from 'react';
-import {useSelector, useDispatch} from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useSelector, useDispatch } from "react-redux";
 import Pagination from '@material-ui/lab/Pagination';
 import { GetIdCateWithURL, GetBreadCrumb } from "../selectors/UserSelectors";
-import {FetchProductSearch, UpdateUrl} from "../actions/UsersAction";
-import {UpdateDataWithType} from "../actions/Common";
+import { FetchProductSearch, UpdateUrl } from "../actions/UsersAction";
+import { UpdateDataWithType } from "../actions/Common";
 import { getChildCateClick, GetStatusSortProducts, AddToCart, CalcNumberCart } from "../common/logics/UsersLogic";
-import {useRouteMatch, Link} from "react-router-dom";
-import i18next from "i18next";
+import { useRouteMatch, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "../translations/i18n"
 export default function ShowListProduct(props) {
     const { t } = useTranslation(['users', "trans"]);
-    let {path, url } = useRouteMatch();
+    let { path, url } = useRouteMatch();
     const [perPage, setPerPage] = useState(12);
     const [currentPag, setCurrentPag] = useState(1);
     const [page, setPage] = useState(0);
@@ -25,11 +24,11 @@ export default function ShowListProduct(props) {
 
     useEffect(() => {
 
-        if(getIdCate){
+        if (getIdCate) {
             let getChildId = getChildCateClick(getCategories, getIdCate);
             let value = getChildId.reduce((result, item) => {
                 return result += `&categorieId=${item}`;
-            } , '');
+            }, '');
             let url = `products?_expand=categorie${value}&_page=${currentPag}&_limit=${perPage}`;
             dispatch(FetchProductSearch(url));
 
@@ -39,9 +38,9 @@ export default function ShowListProduct(props) {
     }, [getIdCate]);
 
     useEffect(() => {
-        
-        if(total) {
-            if(parseInt(total) > perPage) {
+
+        if (total) {
+            if (parseInt(total) > perPage) {
                 let value = parseInt(total) / perPage;
                 setPage(Math.ceil(value));
             } else {
@@ -64,7 +63,7 @@ export default function ShowListProduct(props) {
         let format = urlFormat.slice(urlFormat.indexOf("&_page="), urlFormat.indexOf('&_limit'));
         let customPage = `&_page=1`;
         let result = urlFormat.replace(format, customPage);
-        
+
         dispatch(FetchProductSearch(result));
         dispatch(UpdateUrl(result));
         setPerPage(value);
@@ -73,7 +72,7 @@ export default function ShowListProduct(props) {
 
     const handleSortProduct = event => {
         event.preventDefault();
-        let {value} = event.target;
+        let { value } = event.target;
         let url = getUrl;
         let result = GetStatusSortProducts(value);
         let format = url.slice(url.indexOf("&_sort"), url.indexOf('&_page'));
@@ -98,16 +97,15 @@ export default function ShowListProduct(props) {
         let idPro = event.currentTarget.getAttribute('data-id');
         AddToCart(idPro, 1);
         let numberOfCart = CalcNumberCart();
-        dispatch(UpdateDataWithType(numberOfCart,'GET_NUMBER_OF_CART'));
+        dispatch(UpdateDataWithType(numberOfCart, 'GET_NUMBER_OF_CART'));
     }
-    console.log(url);
 
 
     return (
         <>
             <div className="contents__filters row align-items-center">
                 <div className="col-6">
-    <span className="contents__lble">{t('users:users.result')}: { total } {t('users:users.products')}</span> 
+                    <span className="contents__lble">{t('users:users.result')}: {total} {t('users:users.products')}</span>
                 </div>
                 <div className="col-6 row align-items-center justify-content-end">
                     <div className="contents__per-page">
@@ -136,42 +134,42 @@ export default function ShowListProduct(props) {
             <div className="contents__products">
                 <div className="wrapper__products">
                     {
-                        productsCateId && productsCateId.map(item => (
+                        (productsCateId.length > 0) ? productsCateId.map(item => (
                             <div className="block" key={item.id}>
                                 <div className="product text-center">
-                                    <Link to={ url + "/product/" + item.id } >
-                                        <img src={item.img} alt={item.name} className="product__img"/>
+                                    <Link to={url + "/product/" + item.id} >
+                                        <img src={item.img} alt={item.name} className="product__img" />
                                     </Link>
                                     <p className="product__cate">{item.categorie.name}</p>
-                                    <h2 className="product__heading"> 
+                                    <h2 className="product__heading">
                                         <a href="" className="product__name">{item.name}</a>
                                     </h2>
-                                    {/* <div className="product__rate">
+                                    <div className="product__rate">
                                         <i className="fas fa-star"></i>
                                         <i className="fas fa-star"></i>
                                         <i className="fas fa-star"></i>
                                         <i className="fas fa-star"></i>
                                         <i className="fas fa-star"></i>
-                                    </div> */}
+                                    </div>
                                     <div className="product__price">
                                         <span className="format-price">$99.00</span>
                                         <span className="product__price-current">${item.price}</span>
                                     </div>
-                                    <Link to={ url + "/product/" + item.id }>
+                                    <Link to={url + "/product/" + item.id}>
                                         <button type="button" className="btn-add-cart">
                                             {t('users:users.viewPro')}
                                         </button>
                                     </Link>
                                 </div>
-                                <button type="button" onClick={handleAddToCart}  data-id={item.id} className="btn-add-cart btn-add-to-cart">
+                                <button type="button" onClick={handleAddToCart} data-id={item.id} className="btn-add-cart btn-add-to-cart">
                                     {t('users:users.addCart')}
                                 </button>
                             </div>
-                        ))
+                        )) : <p>Không tìm thấy sản phẩm.</p>
                     }
                 </div>
                 <div className="pagination mt-3 mb-5">
-                    { page ? <Pagination count={page} page={currentPag}  onChange={handleChangePage} color="primary" /> : null } 
+                    {page ? <Pagination count={page} page={currentPag} onChange={handleChangePage} color="primary" /> : null}
                 </div>
             </div>
         </>

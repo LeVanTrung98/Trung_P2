@@ -13,10 +13,42 @@ const intinial = {
     url : "",
     recentlyPros : [],
     numberOfCart : 0,
-    cartHover : []
+    cartHover : [],
+    proDetail : {
+        product : {},
+        nRate : 0,
+        nComment : 0
+    },
 }
 export const users = (state = intinial, actions) =>{
     switch(actions.type){
+        case types.USER_COUNT_RATE_BY_ID : {
+            return {
+                ...state,
+                proDetail : {
+                    ...state.proDetail,
+                    nRate : actions.payload
+                }
+            }
+        }
+        case types.USER_COUNT_COMMENT_BY_ID : {
+            return {
+                ...state,
+                proDetail : {
+                    ...state.proDetail,
+                    nComment : actions.payload
+                }
+            }
+        }
+        case types.USER_GET_PRODUCT_BY_ID : {
+            return {
+                ...state,
+                proDetail : {
+                    ...state.proDetail,
+                    product : actions.payload
+                }
+            }
+        }
         case types.FETCH_PRODUCT_HOVER_CART : {
             return {
                 ...state,
