@@ -27,7 +27,6 @@ axios.interceptors.response.use(
 
             localStorage.removeItem("token");
             window.location.replace("http://localhost:5000/login-user");
-
         }
     }
 )

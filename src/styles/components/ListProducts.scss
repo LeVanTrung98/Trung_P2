@@ -148,13 +148,16 @@
 
 // slick
 .recently, .hot-products, .new-pros{
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    padding-top: 40px;
+    border-top: 1px dotted rgba(0, 0, 0, 0.1);
+    padding-top: 30px;
     &-view-products, .new-pros__slick{
         .title_slick{
             @extend .contents__title;
-            font-family: sans-serif;
-            
+            font-weight: 600;
+            color: #000;
+            letter-spacing: .08em;
+            font-family: 'Os';
+            text-transform: capitalize;
         }
         .content-slick{
             white-space: nowrap;

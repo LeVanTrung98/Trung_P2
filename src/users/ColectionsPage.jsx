@@ -5,6 +5,8 @@ import SlickProducts from './SlickProducts';
 import { getChildCateClick} from "../common/logics/UsersLogic";
 import { GetIdCateWithURL } from "../selectors/UserSelectors";
 import FetchData from '../common/Api';
+import {useTranslation} from "react-i18next";
+import "../translations/i18n";
 
 export default function ColectionsPage() {
     const [cate, setCate] = useState("MakeUp");
@@ -12,7 +14,7 @@ export default function ColectionsPage() {
     let rootCate = useSelector(state => GetCateParent(state)) || [];
     let getIdCate = useSelector(state => GetIdCateWithURL(cate.replaceAll(" ", '-'))(state));
     const getCategories = useSelector(state => state.users.allCate);
-
+    const {t} = useTranslation(['users']);
     useEffect(() => {
         let getChildId = getChildCateClick(getCategories, getIdCate);
         let value = getChildId.reduce((result, item) => {
@@ -67,7 +69,7 @@ export default function ColectionsPage() {
             </div>
             <div className="container mt-4">
                 <div className="new-pros">
-                    <p className="new-pros__title text-center">New Products</p>
+                    <p className="new-pros__title text-center">{t('users:users.newPro')}</p>
                     <ul className="new-pros__list text-center">
                         {
                             rootCate && rootCate.map(item => (

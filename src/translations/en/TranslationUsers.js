@@ -23,6 +23,16 @@ export const TRANSLATION_USERS = {
         'addCart' : "Add To Cart",
         'feature' : "Featured",
         'recentlyPro' : "Recently Views Products",
-        "hotPro" : "Hots Products"
+        "hotPro" : "Hots Products",
+        "newPro" : "New Products"
+    },
+    Detail : {
+        'review' : "reviews",
+        'subtotal' : "Subtotal",
+        'addToCart' : "Add To Cart",
+        'desc'      : "Description",
+        'cusReview' : 'Customers Review',
+        'readMore' : "Read More",
+        'sendQ'    : "Send Question"
     }
 }

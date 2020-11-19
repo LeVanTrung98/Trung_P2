@@ -11,9 +11,9 @@ export const TRANSLATIONS_ADMIN_EN = {
     "products" : {
         "labelProduct" : "Product",
         "labelPrice" : "Price",
-        "labelType" : "Types",
+        "labelType" : "Type(s)",
         "labelStatusPro" : "Status Product",
-        "labelBrand" : "Brands",
+        "labelBrand" : "Brand(s)",
         "labelCategory" : "Category",
         "labelUpImg" : "Image of product",
         "tbProduct" : "Product",

@@ -36,6 +36,12 @@ export default function Account() {
                                     Quản lý đơn hàng
                                 </Link>
                             </div>
+                            <div className= "customers__option">
+                                <Link to="/colections">
+                                    <i className="fa fa-home mr-3" aria-hidden="true"></i>
+                                    Trang Chủ
+                                </Link>
+                            </div>
                         </div>
                     </div>
                     <div className="col-9">

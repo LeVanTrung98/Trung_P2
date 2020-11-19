@@ -7,8 +7,10 @@ import TabPanel from "./TabPanel";
 import { FacebookShareButton, PinterestShareButton, FacebookMessengerShareButton, TwitterShareButton, FacebookIcon, FacebookMessengerIcon, PinterestIcon, TwitterIcon } from "react-share";
 import { AddToCart, CalcNumberCart } from "../common/logics/UsersLogic";
 import { UpdateDataWithType } from "../actions/Common";
-
+import {useTranslation} from "react-i18next";
+import "../translations/i18n";
 export default function DetailProduct() {
+    const {t} = useTranslation(['trans','users']);
     const [quantity, setQuantity] = useState(1);
     let params = useParams();
     const dispatch = useDispatch();
@@ -90,10 +92,10 @@ export default function DetailProduct() {
                         </h2>
                         <div className="product-detail__rate">
                             {nRate ? RateReviews(nRate) : RateReviews(0)}
-                            <span className="number-reivew">{nComment} reivews</span>
+                            <span className="number-reivew">{nComment} {t('users:Detail.review')}</span>
                         </div>
                         <div className="mb-1">
-                            <span className="product-detail__title">Brand</span>
+                            <span className="product-detail__title">{t('trans:products.labelBrand')}</span>
                             <span className="product-detail__title-val">
                                 {
                                     product && product[0]?.brand?.name
@@ -101,7 +103,7 @@ export default function DetailProduct() {
                             </span>
                         </div>
                         <div className="mb-1">
-                            <span className="product-detail__title">Type</span>
+                            <span className="product-detail__title">{t('trans:products.labelType')}</span>
                             <span className="product-detail__title-val">
                                 {
                                     product && product[0]?.type?.name
@@ -117,11 +119,11 @@ export default function DetailProduct() {
                             }</span>
                         </div>
                         <form action="">
-                            <label className="product-detail__title" >Quantity </label>
+                            <label className="product-detail__title" >{t('trans:orders.lbQuantity')} </label>
                             <input type="number" onChange={handleChangeQuantity} value={quantity} className="product-detail__inp" min={1} required />
                         </form>
                         <div className="mb-1 mt-4">
-                            <span className="product-detail__title ">Subtotal</span>
+                            <span className="product-detail__title ">{t('users:Detail.subtotal')}</span>
                             <span className="product-detail__title--bold">$
                                 {
                                     (product.length > 0 && quantity) ? (product[0]?.price * parseInt(quantity)) : 0
@@ -129,7 +131,7 @@ export default function DetailProduct() {
                             </span>
                         </div>
                         <button type="button" onClick={handleClickAddToCart} className="btn-add-cart btn-add-to-cart">
-                            Add To Cart
+                            {t('users:Detail.addToCart')}
                         </button>
                         <div className="row btn-react-share">
                             <FacebookShareButton url="https://tiki.vn/bo-2-binh-xit-khu-mui-va-duoi-muoi-hieu-qua-huong-sa-chanh-julyhouse-50ml-p7642925.html?spid=7642926&src=home-deal-hot" className="share">

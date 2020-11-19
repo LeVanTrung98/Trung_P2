@@ -3,18 +3,21 @@ import Rating from '@material-ui/lab/Rating';
 import { useParams } from 'react-router-dom';
 import FetchData from '../common/Api';
 import Pagination from '@material-ui/lab/Pagination';
+import {useTranslation} from "react-i18next";
+import "../translations/i18n";
+
 export default function TabPanel() {
     const [status, setStatus] = useState('descriptions');
-   
+    const {t} = useTranslation(['users']);
     return (
         <div className="tabs">
             <div className="tabs-title col-12">
                 <ul className="tabs__list">
                     <li onClick={() => setStatus('descriptions')} className= {status === "descriptions" ? "tabs__item tabs__item--active d-inline-block" : "tabs__item d-inline-block" } >
-                        Description
+                        {t('users:Detail.desc')}
                     </li>
                     <li onClick={() => setStatus('review')} className= {status === "review" ? "tabs__item tabs__item--active d-inline-block" : "tabs__item d-inline-block" } >
-                        Customs Review
+                        {t('users:Detail.cusReview')}
                     </li>
                 </ul>
             </div>
@@ -29,6 +32,7 @@ export default function TabPanel() {
 
 export function Reviews(){
     let params = useParams();
+    const {t} = useTranslation(['users']);
     let {id} = params;
     const replyRef = useRef([]);
     const [data, setData] = useState();
@@ -97,10 +101,10 @@ export function Reviews(){
                                 }
                             </p>
                             <span data-id={item.id} onClick={onClickLinkReply} className="review__send-question position-relative review__link d-inline-block">
-                                Gửi trả lời
+                                {t('users:Detail.sendQ')}
                             </span>
                             <span className="review__read-more review__link d-inline-block">
-                                Xêm thêm câu trả lời
+                                {t('users:Detail.readMore')}
                             </span>
                             <form action="" className="form-reply mt-2" ref={el => replyRef.current[item.id] = el}>
                                 <div className="d-flex">

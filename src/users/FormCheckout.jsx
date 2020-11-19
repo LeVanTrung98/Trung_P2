@@ -119,7 +119,7 @@ export default function FormCheckout() {
                     />
                 </div>
                 <button type="submit" onClick={formik.handleSubmit} className="btn-checkout btn-checkout-format  w-100 d-block">
-                    Process To Checkout
+                    Đặt Hàng
                 </button>
             </form>
         </section>

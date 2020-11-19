@@ -4,6 +4,8 @@ import {useDispatch} from "react-redux";
 import {  AddToCart, CalcNumberCart } from "../common/logics/UsersLogic";
 import {UpdateDataWithType} from "../actions/Common";
 import {useLocation,useRouteMatch, useParams, Link} from "react-router-dom";
+import {useTranslation} from "react-i18next";
+import "../translations/i18n";
 
 SlickProducts.propTypes = {
     title : PropTypes.string.isRequired,
@@ -11,6 +13,7 @@ SlickProducts.propTypes = {
 }
 
 export default function SlickProducts(props) {
+    let {t} = useTranslation(['users']);
     let location = useLocation();
     let loca = location?.pathname;
     let url = props.url ? props.url : (loca.indexOf("/product/") !== -1 ) ? loca.substring(0, loca.lastIndexOf("/")) : loca + '/product';
@@ -82,12 +85,12 @@ export default function SlickProducts(props) {
                                     </div>
                                     <Link to={ url +'/' + item.id }>
                                         <button type="button" className="btn-add-cart">
-                                            View Products
+                                            {t('users:users.viewPro')}
                                         </button>
                                     </Link>
                                 </div>
                                 <button type="button" onClick={handleAddToCart}  data-id={item.id} className="btn-add-cart btn-add-to-cart">
-                                    Add To Cart
+                                    {t('users:users.addCart')}
                                 </button>
                             </div>
                         ))
